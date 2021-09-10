@@ -32,5 +32,28 @@ a[2] = 88       # 时间复杂度 O（1）
 # 删除元素 3种方法
 a.remove(88)   # 时间复杂度 O（N）
 # [1,2,3]  遍历所有数据，找到对应的值然后删除
-a.pop(1)       # 时间复杂度 O（N）   a.pop(1) 1 代表索引
-#[1,3]
+a.pop(1)       # 时间复杂度 O（N）
+#[1,3]  a.pop(1)
+a.pop()     # 时间复杂度 O（1）
+# 删除最后一个元素
+
+# 获取数组的长度
+size = len(a)
+
+# 遍历数组 3种
+for i in a:
+    pass
+# enumerate 函数 返回两个值，一个是索引位置，一个是值
+for index,element in enumerate(a):
+    print(index,element)
+for i in range(0,len(a)):
+    print(i,a[i])
+
+# 查找某个元素
+index = a.insert(2)   #2代表元素
+
+# 数组排序       排序时间复杂度 （NlogN）
+a = [3,1,2,5,4,6]
+a.sort()
+# [1,2,3,4,5,6]
+a.sort(reverse=True)  # 倒序
