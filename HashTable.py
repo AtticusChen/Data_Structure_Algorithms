@@ -1,16 +1,8 @@
 """
-<<<<<<< HEAD
-Hash Table 哈希表
-哈希表 = 散列表
-key:value 键值对
-
-
-"""
-=======
 Hash Table
     哈希表 = 散列表
 概念：
-    根据关键码值（key Value）而直接进行访问的数据结构，通过把关键的码值映射到
+    根据关键值（key Value）而直接进行访问的数据结构，通过把关键的码值映射到
     表中一个位置来访问记录，加快查找记录，
     这个映射函数叫散列函数，存放记录叫散列表
 
@@ -18,7 +10,7 @@ key:value 键值对
 
 哈希碰撞：
     2个不同的key通过一个哈希函数得到相同的内存地址
-    解决方法：
+    解决方法：链表方式解决
         简单来说，使用链表的方式进行解决，通过解析内存地址查看是否是对应的key，
             如果不是对应的key，那么直接next下一个继续查看是否是对应的key
 时间复杂度：
@@ -27,41 +19,21 @@ key:value 键值对
     插入：O（1）
     删除：O（1）
 """
+# 应用：单词频率统计
+"""
+考虑统计一个文档中单词出现的频率的问题，以此作为使用映射研究实例
 
-# 创建哈希表
-hashTable = [''] * 4  # 数组创建
-mapping = {}          # 字典
-# 添加元素  O[1]
-    # 数组
-hashTable[1] = 'lihua'
-hashTable[2] = 'wangming'
-hashTable[3] = 'hanmei'
-    # 字典
-mapping[1] = 'lihua_dict'
-mapping[2] = 'wangming_dict'
-mapping[3] = 'hanmei_dict'
-
-# 删除元素 O[1]
-    # 数组
-hashTable[1] = ''
-    # 字典
-mapping.pop(1)  # 把key 1 删除
-del mapping[1]
-
-# 获取key的值
-    # 数组
-hashTable[3]
-    # 字典
-mapping[3]
-# 检查key是否存在
-    #字典
-dict_key = 3
-dict_key in mapping
-
-# 哈希表长度
-    #字典
-len(mapping)
-# 哈希表是否还有元素
-    # 字典
-len(mapping) ==0
->>>>>>> bac658492d37f11e2814da8f40992488ba925d6b
+需求：
+    一个统计单词出现频率并报告出现最频繁的单词程序
+"""
+freq = {}
+for piece in open("").read().lower().split():
+    word = ''.join(c for c in piece if c.isalpha())
+    if word:
+        freq[word] = 1 + freq.get(word,0)
+max_word = ''
+max_count = ''
+for (w,c) in freq.items():
+    if c > max_count:
+        max_word = w
+        max_count = c
